@@ -29,9 +29,16 @@ export async function generateMetadata({ params }) {
 export default async function Page({ params }) {
   const { slug } = params;
 
-  const { default: Mdx, title, sections } = await importMdxFile(slug);
+  const { default: Mdx, metadata } = await importMdxFile(slug);
+
+  let title = '', date = null;
+  if (isObject(metadata)) {
+    if (isString(metadata.title)) title = metadata.title;
+    if (isString(metadata.date)) date = new Date(metadata.date);
+  }
+
   return (
-    <BlogEntry title={title} sections={sections}>
+    <BlogEntry title={title} date={date}>
       <Mdx />
     </BlogEntry>
   );

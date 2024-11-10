@@ -24,3 +24,15 @@ export const comparePaths = (a, b) => {
 export const deriveMetaTitle = (title) => {
   return `${title} - AugurRank`;
 };
+
+export const getFormattedDate = (date) => {
+  const months = [
+    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+  ];
+
+  const year = date.getFullYear();
+  const month = months[date.getMonth()];
+  const day = date.getDate();
+
+  return `${month} ${day}, ${year}`;
+};

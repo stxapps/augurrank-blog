@@ -67,9 +67,9 @@ export function JoinNewsletter() {
   };
 
   return (
-    <header className="py-16 sm:text-center">
-      <h1 className="mb-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-slate-200">Latest Updates</h1>
-      <p className="text-lg text-slate-700 dark:text-slate-400">Stay informed with all the latest AugurRank news straight from the team.</p>
+    <header className="px-4 pt-20 sm:px-6 sm:text-center lg:px-8 xl:px-12">
+      <h1 className="mb-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-slate-100">Latest Updates</h1>
+      <p className="text-lg text-slate-600 dark:text-slate-300">Stay informed with all the latest AugurRank news straight from the team.</p>
       <section className="mt-3 max-w-sm sm:mx-auto sm:px-4">
         <h2 className="sr-only">Sign up for our newsletter</h2>
         <div className="-mx-2 flex flex-wrap">
@@ -82,18 +82,20 @@ export function JoinNewsletter() {
               <input className="block w-full appearance-none rounded-full border border-transparent bg-white py-2 pl-12 pr-3 leading-5 text-slate-900 shadow ring-1 ring-slate-900/5 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 sm:text-sm dark:bg-slate-700/20 dark:text-white dark:ring-slate-200/20 dark:focus:ring-orange-500" onChange={onEmailInputChange} type="email" autoComplete="email" placeholder="Email address" value={state.email} autoCapitalize="none" disabled={[STATUS_JOINING, STATUS_COMMIT].includes(state.status)} />
             </div>
           </div>
-          <div className="mt-3 flex min-h-[5.25rem] grow px-2">
-            {[STATUS_INIT, STATUS_INVALID, STATUS_ROLLBACK].includes(state.status) && <button className="flex-auto rounded-full border-y border-transparent bg-orange-500 px-3 py-2 text-sm font-semibold text-white shadow hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-offset-2 dark:hover:bg-orange-400 dark:focus:ring-orange-700 dark:focus:ring-offset-slate-900">Join</button>}
-            {[STATUS_INVALID, STATUS_ROLLBACK].includes(state.status) && <p className="pt-1.5 text-sm text-red-500">{getMsg(state.status)}</p>}
-            {([STATUS_ROLLBACK].includes(state.status) && state.extraMsg) && <p className="pt-1.5 text-sm text-red-500">{state.extraMsg}</p>}
-            {[STATUS_JOINING].includes(state.status) && <div className="mt-1 flex">
-              <div className="ball-clip-rotate">
-                <div />
-              </div>
-              <p className="ml-2 text-sm text-slate-300">{getMsg(state.status)}</p>
-            </div>}
-            {[STATUS_COMMIT].includes(state.status) && <p className="mt-1 text-sm font-medium text-green-500">{getMsg(state.status)}</p>}
+          <div className="mt-3 flex grow px-2">
+            <button className="flex-auto rounded-full border-y border-transparent bg-orange-500 px-3.5 py-2 text-sm font-semibold text-white shadow hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-offset-2 disabled:opacity-75 disabled:hover:bg-orange-500 dark:hover:bg-orange-400 dark:focus:ring-orange-700 dark:focus:ring-offset-slate-900 disabled:dark:hover:bg-orange-500" onClick={onJoinBtnClick} disabled={![STATUS_INIT, STATUS_INVALID, STATUS_ROLLBACK].includes(state.status)}>Join</button>
           </div>
+        </div>
+        <div className="min-h-20 py-3 text-left text-[0.9375rem]">
+          {[STATUS_INVALID, STATUS_ROLLBACK].includes(state.status) && <p className="text-red-500">{getMsg(state.status)}</p>}
+          {([STATUS_ROLLBACK].includes(state.status) && state.extraMsg) && <p className="text-red-500">{state.extraMsg}</p>}
+          {[STATUS_JOINING].includes(state.status) && <div className="flex">
+            <div className="ball-clip-rotate">
+              <div />
+            </div>
+            <p className="ml-2 text-slate-600 dark:text-slate-300">{getMsg(state.status)}</p>
+          </div>}
+          {[STATUS_COMMIT].includes(state.status) && <p className="text-green-500">{getMsg(state.status)}</p>}
         </div>
       </section>
     </header>

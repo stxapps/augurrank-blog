@@ -6,6 +6,15 @@ import {
 } from '@headlessui/react';
 import clsx from 'clsx';
 
+function OutlineLightIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+      <path d="M12 4v1M17.66 6.344l-.828.828M20.005 12.004h-1M17.66 17.664l-.828-.828M12 20.01V19M6.34 17.664l.835-.836M3.995 12.004h1.01M6 6l.835.836" />
+    </svg>
+  );
+}
+
 function LightIcon(props) {
   return (
     <svg aria-hidden="true" viewBox="0 0 16 16" {...props}>
@@ -51,13 +60,13 @@ export function ThemeSelector(props) {
   return (
     <Listbox as="div" value={theme} onChange={setTheme} {...props}>
       <Label className="sr-only">Theme</Label>
-      <ListboxButton className="group flex h-14 w-12 items-center justify-center focus:outline-none md:w-14" aria-label="Theme">
-        <div className="group flex size-8 items-center justify-center rounded-md border border-slate-400 group-hover:border-slate-500 group-focus-visible:ring-2 group-focus-visible:ring-slate-400 dark:border-slate-500 dark:group-hover:border-slate-400 dark:group-focus-visible:ring-slate-500">
-          <LightIcon className="size-3.5 fill-slate-500 group-hover:fill-slate-600 dark:hidden" />
-          <DarkIcon className="hidden size-4 fill-slate-400 group-hover:fill-slate-300 dark:block" />
+      <ListboxButton className="group flex size-14 items-center justify-center focus:outline-none" aria-label="Theme">
+        <div className="group flex size-8 items-center justify-center rounded-full group-focus-visible:ring-2 group-focus-visible:ring-slate-400 dark:group-focus-visible:ring-slate-500">
+          <OutlineLightIcon className="size-6 fill-slate-400/20 stroke-slate-500 group-hover:stroke-slate-600 dark:hidden" />
+          <DarkIcon className="hidden size-5 fill-slate-400 group-hover:fill-slate-300 dark:block" />
         </div>
       </ListboxButton>
-      <ListboxOptions className="absolute left-1/2 top-full w-36 -translate-x-1/2 space-y-1 rounded-md bg-white p-3 text-sm font-medium shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-800 dark:ring-white/5">
+      <ListboxOptions className="absolute right-0 top-full w-36 space-y-1 rounded-md bg-white p-3 text-sm font-medium shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-800 dark:ring-white/5">
         {themes.map((theme) => (
           <ListboxOption
             key={theme.value}
@@ -72,7 +81,7 @@ export function ThemeSelector(props) {
           >
             {() => (
               <>
-                <div className="flex size-6 items-center justify-center rounded bg-white p-1 shadow ring-1 ring-slate-900/5 dark:bg-slate-700 dark:ring-inset dark:ring-white/5">
+                <div className="flex size-6 items-center justify-center rounded-full bg-white p-1 shadow ring-1 ring-slate-900/5 dark:bg-slate-700 dark:ring-inset dark:ring-white/5">
                   <theme.icon className={clsx('fill-slate-400', theme.iconSize)} />
                 </div>
                 <div className="ml-3">{theme.name}</div>

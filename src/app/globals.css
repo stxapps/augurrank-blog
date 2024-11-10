@@ -16,7 +16,7 @@
     height: 20px;
     background: 0 0!important;
     border-radius: 100%;
-    border: 1px solid rgb(100, 116, 139);
+    @apply border border-slate-500;
     border-bottom-color: transparent;
     animation: ball-clip-rotate .75s 0s linear infinite;
   }
@@ -33,7 +33,8 @@
     }
   }
 
-  dark .ball-clip-rotate > div {
-    border: 1px solid rgb(148, 163, 184);
+  .dark .ball-clip-rotate > div {
+    @apply border border-slate-400;
+    border-bottom-color: transparent;
   }
 }
