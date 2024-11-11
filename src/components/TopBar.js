@@ -11,7 +11,7 @@ export function TopBar() {
       <div className="flex h-[3.75rem] items-center justify-between border-b border-slate-900/10 dark:border-slate-50/[0.06]">
         <div className="relative flex grow basis-0 items-center">
           <Link className="flex items-center" href="https://augurrank.com" aria-label="AugurRank" target="_blank" rel="noreferrer">
-            <Image className="h-8 w-auto" src={Logo} alt="AugurRank logo" />
+            <Image className="h-8 w-auto" src={Logo} alt="AugurRank logo" placeholder="empty" />
             <span className="ml-1 hidden text-xl font-medium text-slate-800 sm:inline dark:text-slate-100">AugurRank</span>
           </Link>
         </div>
