@@ -4,6 +4,7 @@ const mpi = (slug, grp, path = '') => {
   return { slug, grp, path };
 };
 const _mdxInfos = [
+  mpi('a-look-at-prediction-games', 1),
   mpi('intro', 1),
 ];
 for (const info of _mdxInfos) {
