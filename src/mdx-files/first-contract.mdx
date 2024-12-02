@@ -1,0 +1,25 @@
+import fcImage from '../images/first-contract.png';
+
+export const title = 'Our first smart contract is live. 🥳';
+
+export const metadata = {
+  title,
+  description: 'We\'ve deployed our first Stacks smart contract for our first prediction game on the Stacks Mainnet. It will store user BTC price prediction and verify accuracy with AMM pools.',
+  date: '2024-12-02',
+};
+
+We've deployed [our first Stacks smart contract](https://explorer.hiro.so/txid/SPGW94RBCYZNTV42XX57YZSHWZNKY9HYZJNYV8NR.augurrank-btc-v1?chain=mainnet) for our first prediction game on the Stacks Mainnet. It will store user BTC price prediction and verify accuracy with AMM pools.
+
+<Image src={fcImage} alt="" priority={true} />
+
+Our game will let users predict whether BTC prices will increase or decrease in the following 100 Bitcoin blocks (approximately 16 hours). After 100 Bitcoin blocks, the verify function will be called with the correct Stacks block height without needing to provide BTC prices, as BTC prices can be retrieved from [ALEX AMM pools](https://app.alexlab.co/pool).
+
+Utilizing the Stacks blockchain offers several advantages:
+
+1. The predictions are permanently stored, ensuring their immutability and preventing manipulation.
+2. The prediction data is permissionlessly accessible to anyone, fostering transparency and trust.
+3. The prediction's outcome can be determined by referencing the BTC price from AMM pools, ensuring fairness and transparency in the verification process.
+
+Currently, there are limitations as there is no way to get Bitcoin block height from Stacks block height and vice versa. Getting Bitcoin block height in the at-block function still returns the latest height. That's why the verify function needs to be provided with the correct Stacks block height and called by the admin only. At least the verified result is transparent,  and the admin can re-verify with the correct Stacks block height.
+
+There is still room for improvement, especially when this [bug#1615](https://github.com/hirosystems/clarinet/issues/1615) is fixed. We'll keep working on it and keep you updated on our progress.
