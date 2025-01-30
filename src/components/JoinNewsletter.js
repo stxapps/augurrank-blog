@@ -83,7 +83,7 @@ export function JoinNewsletter() {
             </div>
           </div>
           <div className="mt-3 flex grow px-2">
-            <button className="flex-auto rounded-full border-y border-transparent bg-orange-500 px-3.5 py-2 text-sm font-semibold text-white shadow hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-offset-2 disabled:opacity-75 disabled:hover:bg-orange-500 dark:hover:bg-orange-400 dark:focus:ring-orange-700 dark:focus:ring-offset-slate-900 disabled:dark:hover:bg-orange-500" onClick={onJoinBtnClick} disabled={[STATUS_JOINING, STATUS_COMMIT].includes(state.status)}>Join</button>
+            <button className="flex-auto rounded-full border-y border-transparent bg-orange-400 px-3.5 py-2 text-sm font-semibold text-white shadow hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-offset-2 disabled:opacity-75 disabled:hover:bg-orange-400 dark:hover:brightness-110 dark:focus:ring-orange-700 dark:focus:ring-offset-slate-900 disabled:dark:hover:brightness-100" onClick={onJoinBtnClick} disabled={[STATUS_JOINING, STATUS_COMMIT].includes(state.status)}>Join</button>
           </div>
         </div>
         <div className="min-h-20 py-3 text-left text-[0.9375rem]">
