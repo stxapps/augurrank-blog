@@ -4,6 +4,7 @@ const mpi = (slug, grp, path = '') => {
   return { slug, grp, path };
 };
 const _mdxInfos = [
+  mpi('bns-names-and-stacks-nft-avatars', 1),
   mpi('first-game', 1),
   mpi('first-contract', 1),
   mpi('a-look-at-prediction-games', 1),
